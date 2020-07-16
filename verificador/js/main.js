@@ -52,8 +52,9 @@ function onPageLoad(e){
 			this.div.appendChild(imageCaption)
 			this.div.appendChild(div1)
 
-			before_load.fadeIn(div1)
 			content.appendChild(this.div)	
+			before_load.fadeIn(div1)
+			before_load.fadeIn(imageCaption)
 		},
 		init_2(){
 			const p = document.createElement('p')
@@ -65,8 +66,8 @@ function onPageLoad(e){
 			div2.classList.add('text-block')
 			div2.appendChild(p)
 
-			before_load.fadeIn(div2)
 			this.div.appendChild(div2)
+			before_load.fadeIn(div2)
 		},
 		init_3(){
 			const div3 = document.createElement('div')
@@ -78,7 +79,41 @@ function onPageLoad(e){
 			div3.classList.add('text-block')
 			div3.appendChild(p1)
 
+			this.div.appendChild(div3)
 			before_load.fadeIn(div3)
+		},
+		ifError(){
+			const div3 = document.createElement('div')
+			const div4 = document.createElement('div')
+			const div5 = document.createElement('div')
+			const p = document.createElement('p')
+			const input = document.createElement('input')
+			const a = document.createElement('a')
+
+
+			p.innerHTML = 'Se a nova página não carregar automaticamente,<br> clique no botão abaixo:'
+			p.classList.add('fourth','p')
+			before_load.fadeIn(div4)
+
+			div3.classList.add('div-button')
+			div3.appendChild(div5)
+
+			div4.classList.add('text-block')
+			div4.appendChild(p)
+
+			a.setAttribute('href', 'https://google.com.br')
+
+			div5.classList.add('button-image')
+			input.classList.add('button')
+			input.setAttribute('type', 'button')
+			input.setAttribute('name', 'button')
+			input.value = 'Continuar Matrícula!'
+			a.appendChild(input)
+			div5.appendChild(a)
+
+
+
+			this.div.appendChild(div4)
 			this.div.appendChild(div3)
 		},
 		fadeIn(element){
@@ -94,6 +129,9 @@ function onPageLoad(e){
 				}	
 			},)
 		},
+		redirect(){
+			window.location.href = ('https://google.com.br')
+		},
 	}
 
 	function timer (){
@@ -102,13 +140,19 @@ function onPageLoad(e){
 			verify_load.delete()
 			before_load.init_1()
 			
-		}, 1000)
+		}, 6000)
 		setTimeout(() =>{
 			before_load.init_2()
-		}, 1400)
+		}, 6400)
 		setTimeout(() =>{
 			before_load.init_3()
-		}, 1800)
+		}, 7000)
+		setTimeout(() =>{
+			before_load.redirect()
+		}, 8000)
+		setTimeout(() =>{
+			before_load.ifError()
+		}, 10000)
 	}
 	timer()
 
