@@ -1,1 +1,0 @@
-this.verifyText = `j`

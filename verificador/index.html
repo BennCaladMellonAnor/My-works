@@ -1,0 +1,294 @@
+<!DOCTYPE html>	
+<html>
+<head>
+	<meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″>
+	<title>Verificando se ha vagas —</title>
+	<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+	<style type="text/css">
+		body{
+			margin:0;
+			padding:0;
+			background-color:#e6e6e6!important;
+		}
+		a {
+			text-decoration:none;
+		}
+		input{
+			box-shadow: 0 0 0 0;
+		    border: 0 none;
+		    outline: 0;
+		}
+		.verify-load{
+			display:inline-block;
+			position:absolute;
+			width:150px;
+			left:calc(50% - 150px / 2);
+			top:10px;
+
+		}
+		.image-caption{
+			display:inline-block;
+			position:absolute;
+			width:150px;
+			left:calc(50% - 150px / 2);
+			top:20px;
+		}
+
+		.element-container{
+			position:absolute;
+			width:100%;
+			height:500px;
+		}
+		.text-block{
+			width:100%;
+			text-align:center;
+		}
+		.p-load{
+			width:100%;
+			position:absolute;
+			top:150px;
+			left:auto;
+			right:auto;
+			font-size:40px;
+			font-family:Oswald;
+			color:black;
+		}
+		.p{
+			width:100%;
+			position:absolute;
+			left:auto;
+			right:auto;
+			color:black;
+		}
+		.main{
+			font-family:Oswald;
+			font-size:40px;
+			top:150px;
+		}
+		.second{
+			font-family:Oswald;
+			font-size:40px;
+			top:190px;
+		}
+		.third{
+			font-family:Oswald;
+			font-size:40px;
+			top:230px;
+		}
+		.fourth{
+			text-transform:none;
+			font-size:29px;
+			top:300px;
+			font-family:Raleway;
+		}
+		.div-button{
+			top:410px;
+			position:absolute;
+			width:;
+			left:calc(50% - 150px/2 - 50px);
+			text-align:center;	
+		}
+		.button-image{
+
+		}
+		.button{
+			cursor:pointer;
+			background-color:transparent;
+			background-repeat:no-repeat;
+			border:none;
+			padding:0 0 0 25px;
+			box-sizing:border-box;
+			background:url(img/button-style-1-blue.png);
+			background-repeat:;
+		    background-position: top right;
+		    border-radius:50px;
+			height:54px;
+		    padding-right: 25px;
+		    color: #fff;
+		    font-size: 18px;
+		    text-shadow: 1px 1px rgba(0,0,0,.5);
+		    display: block;
+		    height: 54px;
+		    min-width: 150px;
+		    white-space: nowrap;
+		    text-overflow: ellipsis;
+		    overflow: hidden;
+		    width: 100%;
+		    box-sizing: border-box;
+		}
+		.button:hover{
+			background-position:0 -234px;
+			background-position:right -60px;
+		}
+		.button:active{
+			background-position:0 -294px;
+			background-position:right -120px;
+		}
+	</style>
+</head>
+<body>
+	<div content></div>
+	<script type="text/javascript">
+		onPageLoad(true)
+
+		function onPageLoad(e){
+			const content = document.querySelectorAll('[content]')[1]
+			
+			const verify_load = {
+				init(){
+					const load = document.createElement('img')
+					const div = document.createElement('div')
+					const div_p = document.createElement('div')
+					const p = document.createElement('p')
+					div.classList.add('element-container')
+					div.setAttribute('load', '')
+					p.innerHTML = 'Verificando se h&aacute vagas disponíveis...'	
+					load.src = 'img/loading-1.gif'
+					load.classList.add('verify-load')
+					div_p.classList.add('text-block')
+					p.classList.add('p-load')
+					div.appendChild(load)
+					div_p.appendChild(p)
+					div.appendChild(div_p)
+					content.appendChild(div)
+				},
+				delete(){
+					const delete_div = document.querySelectorAll('[content]')[1]
+						while(delete_div.firstChild){
+							delete_div.removeChild(delete_div.firstChild)
+						}
+					
+				}
+			}
+
+			const before_load = {
+				init_1(){
+					const imageCaption = document.createElement('img')
+					this.div = document.createElement('div')
+					const div1 = document.createElement('div')
+					const div2 = document.createElement('div')
+					const p = document.createElement('p')
+					const text = document.createTextNode('OK! Encontrado!')
+
+					imageCaption.src = 'img/main.gif'
+					imageCaption.classList.add('image-caption')
+
+					p.classList.add('p', 'main')
+					p.appendChild(text)
+
+					div1.classList.add('text-block')
+					div1.appendChild(p)
+
+					this.div.classList.add('element-container')
+					this.div.appendChild(imageCaption)
+					this.div.appendChild(div1)
+
+					content.appendChild(this.div)	
+					before_load.fadeIn(div1)
+					before_load.fadeIn(imageCaption)
+				},
+				init_2(){
+					const p = document.createElement('p')
+					const div2 = document.createElement('div')
+
+					p.innerHTML = '<strong>1 vaga</strong> foi <strong>reservada</strong> pelos pr&oacuteximos <strong>10 minutos!</strong>'
+					p.classList.add('p', 'second')
+
+					div2.classList.add('text-block')
+					div2.appendChild(p)
+
+					this.div.appendChild(div2)
+					before_load.fadeIn(div2)
+				},
+				init_3(){
+					const div3 = document.createElement('div')
+					const p1 = document.createElement('p')
+
+					p1.innerHTML = '<strong>Conclua sua inscrição r&aacutepido!</strong>'
+					p1.classList.add('p', 'third')	
+
+					div3.classList.add('text-block')
+					div3.appendChild(p1)
+
+					this.div.appendChild(div3)
+					before_load.fadeIn(div3)
+				},
+				ifError(){
+					const div3 = document.createElement('div')
+					const div4 = document.createElement('div')
+					const div5 = document.createElement('div')
+					const p = document.createElement('p')
+					const input = document.createElement('input')
+					const a = document.createElement('a')
+
+
+					p.innerHTML = 'Se a nova p&aacutegina não carregar automaticamente,<br> clique no botão abaixo:'
+					p.classList.add('fourth','p')
+					before_load.fadeIn(div4)
+
+					div3.classList.add('div-button')
+					div3.appendChild(div5)
+
+					div4.classList.add('text-block')
+					div4.appendChild(p)
+
+					a.setAttribute('href', 'https://google.com.br')
+
+					div5.classList.add('button-image')
+					input.classList.add('button')
+					input.setAttribute('type', 'button')
+					input.setAttribute('name', 'button')
+					input.value = 'Continuar Matrícula!'
+					a.appendChild(input)
+					div5.appendChild(a)
+
+
+
+					this.div.appendChild(div4)
+					this.div.appendChild(div3)
+				},
+				fadeIn(element){
+					let opm = 0
+					let interval = 0
+					let control = 0
+					interval = setInterval(() => {
+						if (opm < 1){
+							opm = opm + 0.01
+							element.style.opacity = opm
+						}else{
+							clearInterval(interval)
+						}	
+					},)
+				},
+				redirect(){
+					window.location.href = ('https://google.com.br')
+				},
+			}
+
+			function timer (){
+				verify_load.init()
+				setTimeout(() =>{
+					verify_load.delete()
+					before_load.init_1()
+					
+				}, 6000)
+				setTimeout(() =>{
+					before_load.init_2()
+				}, 6400)
+				setTimeout(() =>{
+					before_load.init_3()
+				}, 7000)
+				setTimeout(() =>{
+					before_load.redirect()
+				}, 8000)
+				setTimeout(() =>{
+					before_load.ifError()
+				}, 10000)
+			}
+			timer()
+
+		}
+	</script>
+</body>
+</html>
